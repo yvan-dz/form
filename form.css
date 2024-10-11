@@ -1,0 +1,256 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+.form-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-left: 8px solid #00ced1;
+    transition: transform 0.3s ease;
+}
+
+.form-container:hover {
+    transform: scale(1.02);
+}
+
+h1 {
+    text-align: center;
+    color: #008080;
+    font-size: 3em;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 30px;
+}
+
+legend {
+    font-size: 1.5em;
+    color: #00ced1;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #00ced1;
+}
+
+label {
+    font-size: 1.1em;
+    color: #333;
+    margin: 15px 0 8px;
+    font-weight: bold;
+}
+
+input, textarea, select {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #00ced1;
+    border-radius: 10px;
+    font-size: 1em;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #008080;
+    outline: none;
+    box-shadow: 0 0 12px rgba(0, 206, 209, 0.3);
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 15px 20px;
+    font-size: 1.2em;
+    background-color: #00ced1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #008080;
+    box-shadow: 0 6px 12px rgba(0, 128, 128, 0.3);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+input[type="file"] {
+    background-color: #f0f8ff;
+    border: 2px dashed #00ced1;
+    padding: 15px;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    legend {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    button {
+        font-size: 1.1em;
+    }
+}
+
+/* Petits appareils (smartphones en mode portrait) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    legend {
+        font-size: 1.3em;
+    }
+
+    input, textarea, select {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 1.1em;
+        padding: 12px;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+}
+
+/* Tablettes et smartphones (smartphones en mode paysage et tablettes en mode portrait) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    legend {
+        font-size: 1.4em;
+    }
+
+    input, textarea, select {
+        font-size: 1em;
+        padding: 12px;
+    }
+
+    button {
+        font-size: 1.2em;
+        padding: 14px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+}
+
+/* Écrans moyens (ordinateurs portables, tablettes en mode paysage) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    h1 {
+        font-size: 3em;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    legend {
+        font-size: 1.5em;
+    }
+
+    input, textarea, select {
+        font-size: 1em;
+        padding: 14px;
+    }
+
+    button {
+        font-size: 1.2em;
+        padding: 16px;
+    }
+
+    .form-container {
+        padding: 25px;
+    }
+}
+
+/* Grands écrans (ordinateurs de bureau) */
+@media (min-width: 1025px) {
+    h1 {
+        font-size: 3em;
+    }
+
+    p {
+        font-size: 1.3em;
+    }
+
+    legend {
+        font-size: 1.6em;
+    }
+
+    input, textarea, select {
+        font-size: 1.1em;
+        padding: 15px;
+    }
+
+    button {
+        font-size: 1.3em;
+        padding: 18px;
+    }
+
+    .form-container {
+        padding: 40px;
+    }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Conception de Site Web</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Formulaire de Conception de Site Web</h1>
+        <p>Chez Websnape, nous sommes spécialisés dans la création de sites web sur mesure, alliant design moderne et fonctionnalité. Ce formulaire nous permet de mieux comprendre vos besoins et de vous offrir une expérience personnalisée qui correspond à vos attentes visuelles et techniques.</p>
+        
+        <form id="designForm"  action="https://formspree.io/f/xvgoopbo" method="POST">
+            <!-- Informations Générales -->
+            <fieldset>
+                <legend>Informations Générales</legend>
+                <label for="companyName">Nom de l'entreprise ou du projet :</label>
+                <input type="text" id="companyName" name="companyName" placeholder="(Nom officiel de votre entreprise ou projet)" required>
+
+                <label for="contact">Contact principal :</label>
+                <input type="text" id="contact" name="contact" placeholder="(Nom, email, téléphone)" required>
+
+                <label for="projectDescription">Décrivez votre entreprise ou projet :</label>
+                <textarea id="projectDescription" name="projectDescription" placeholder="(Quels sont vos services ou produits ? Quelle est votre mission ?)" rows="4"></textarea>
+
+                <label for="websiteGoal">Quel est l'objectif principal de votre site web ?</label>
+                <input type="text" id="websiteGoal" name="websiteGoal" placeholder="(ex. Vendre des produits, fournir des informations, attirer des leads, présenter un portfolio, etc.)" required>
+            </fieldset>
+
+            <!-- Style et Apparence -->
+            <fieldset>
+                <legend>Style et Apparence</legend>
+                <label for="logoUrl">Avez-vous un logo ? Si oui, insérez le lien :</label>
+                <input type="text" id="logoUrl" name="logoUrl" placeholder="Lien du logo (facultatif)">
+
+
+                <label for="colors">Avez-vous une charte graphique ou des couleurs spécifiques que vous souhaitez utiliser ?</label>
+                <input type="text" id="colors" name="colors" placeholder="(Couleurs principales et secondaires, typographies, etc.)">
+
+                <label for="visualStyle">Quel style visuel préférez-vous pour votre site web ?</label>
+                <select id="visualStyle" name="visualStyle">
+                    <option value="Moderne">Moderne</option>
+                    <option value="Minimaliste">Minimaliste</option>
+                    <option value="Classique">Classique</option>
+                    <option value="Vintage">Vintage</option>
+                    <option value="Créatif">Créatif</option>
+                    <option value="Élégant">Élégant</option>
+                    <option value="Fun">Fun</option>
+                    <option value="Autre">Autre</option>
+                </select>
+
+                <label for="ambiance">Quelle ambiance souhaitez-vous créer avec votre site web ?</label>
+                <select id="ambiance" name="ambiance">
+                    <option value="Professionnelle">Professionnelle</option>
+                    <option value="Amicale">Amicale et accessible</option>
+                    <option value="Luxe">Luxe et sophistiquée</option>
+                    <option value="Innovante">Innovante et avant-gardiste</option>
+                    <option value="Naturelle">Authentique et naturelle</option>
+                    <option value="Énergique">Énergique et dynamique</option>
+                </select>
+
+                <label for="examples">Avez-vous des exemples de sites web qui vous plaisent ?</label>
+                <textarea id="examples" name="examples" placeholder="(Indiquez les liens et ce que vous aimez dans ces sites : design, couleurs, typographie, images, fonctionnalités, etc.)" rows="3"></textarea>
+
+                <label for="designPreference">Préférez-vous un design plus chargé en contenu visuel ou épuré ?</label>
+                <select id="designPreference" name="designPreference">
+                    <option value="Chargé">Chargé (avec beaucoup d'images, de graphiques et de couleurs)</option>
+                    <option value="Épuré">Épuré (design minimaliste, espace blanc)</option>
+                </select>
+
+                <label for="navigation">Quel est votre style de navigation préféré ?</label>
+                <select id="navigation" name="navigation">
+                    <option value="Menu horizontal">Menu horizontal en haut</option>
+                    <option value="Menu vertical">Menu vertical sur le côté</option>
+                    <option value="Menu burger">Menu caché (burger)</option>
+                    <option value="One page">Navigation en une page (scrolling)</option>
+                </select>
+
+                <label for="animations">Souhaitez-vous utiliser des animations ou des effets interactifs ?</label>
+                <input type="text" id="animations" name="animations" placeholder="(ex. transitions douces, animations au passage de la souris, vidéos de fond)">
+            </fieldset>
+
+            <!-- Fonctionnalités -->
+            <fieldset>
+                <legend>Fonctionnalités et Structure</legend>
+                <label for="mainSections">Quelles sont les principales sections/pages que vous souhaitez sur votre site ?</label>
+                <textarea id="mainSections" name="mainSections" placeholder="(ex. Page d'accueil, À propos, Services, Blog, Portfolio, Contact, Boutique en ligne, etc.)" rows="3"></textarea>
+
+                <label for="features">Quels types de fonctionnalités souhaitez-vous inclure ?</label>
+                <textarea id="features" name="features" placeholder="(ex. Formulaire de contact, chat en direct, carte interactive, galeries d'images, intégration de réseaux sociaux, espace membres, etc.)" rows="3"></textarea>
+
+                <label for="eCommerce">Avez-vous besoin d'une boutique en ligne (e-commerce) ?</label>
+                <input type="text" id="eCommerce" name="eCommerce" placeholder="(Si oui, combien de produits prévoyez-vous de vendre ?)">
+            </fieldset>
+
+            <!-- Délai et Budget -->
+            <fieldset>
+                <legend>Délai et Budget</legend>
+                <label for="timeline">Quel est votre délai de livraison idéal ?</label>
+                <input type="text" id="timeline" name="timeline" placeholder="(ex. 1 mois, 3 mois, etc.)">
+
+                <label for="budget">Quel est votre budget pour ce projet ?</label>
+                <input type="text" id="budget" name="budget" placeholder="(Fourchette indicative)">
+            </fieldset>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+
+    <script src="form.js"></script>
+    <script>
+        // Gestionnaire d'événement pour afficher le champ de lien du logo si "Oui" est sélectionné
+        document.querySelectorAll('input[name="hasLogo"]').forEach((elem) => {
+            elem.addEventListener("change", function(event) {
+                var value = event.target.value;
+                var logoLinkDiv = document.getElementById('logoLink');
+                if (value === 'oui') {
+                    logoLinkDiv.style.display = 'block';
+                } else {
+                    logoLinkDiv.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
