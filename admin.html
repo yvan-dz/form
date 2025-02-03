@@ -16,6 +16,18 @@
                     <th>Contact</th>
                     <th>Description du projet</th>
                     <th>Objectif du site</th>
+                    <th>Logo</th>
+                    <th>Couleurs</th>
+                    <th>Style Visuel</th>
+                    <th>Ambiance</th>
+                    <th>Exemples</th>
+                    <th>Préférence Design</th>
+                    <th>Navigation</th>
+                    <th>Animations</th>
+                    <th>Pages Principales</th>
+                    <th>Fonctionnalités</th>
+                    <th>E-Commerce</th>
+                    <th>Délai</th>
                     <th>Budget</th>
                     <th>Date de soumission</th>
                 </tr>
@@ -26,6 +38,64 @@
         </table>
     </div>
 
-    <script type="module" src="admin.js"></script>
+    <!-- Import Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // Configuration Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyB9nXTsER4ouKjNrlL5zbf3Tj8Yq2fs_gg",
+            authDomain: "websnape-form.firebaseapp.com",
+            projectId: "websnape-form",
+            storageBucket: "websnape-form.firebasestorage.app",
+            messagingSenderId: "250051491514",
+            appId: "1:250051491514:web:daa2f4c543c44ca4a6b483",
+            measurementId: "G-WZWEWV7HJ9"
+        };
+
+        // Initialisation Firebase et Firestore
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Fonction pour récupérer et afficher les données
+        async function afficherClients() {
+            const querySnapshot = await getDocs(collection(db, "clients"));
+            const tableBody = document.getElementById("clientsTableBody");
+            tableBody.innerHTML = ""; // Vider le tableau avant de charger les nouvelles données
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td>${data.companyName || "Non renseigné"}</td>
+                    <td>${data.contact || "Non renseigné"}</td>
+                    <td>${data.projectDescription || "Non renseigné"}</td>
+                    <td>${data.websiteGoal || "Non renseigné"}</td>
+                    <td><a href="${data.logoUrl || '#'}" target="_blank">Voir</a></td>
+                    <td>${data.colors || "Non renseigné"}</td>
+                    <td>${data.visualStyle || "Non renseigné"}</td>
+                    <td>${data.ambiance || "Non renseigné"}</td>
+                    <td>${data.examples || "Non renseigné"}</td>
+                    <td>${data.designPreference || "Non renseigné"}</td>
+                    <td>${data.navigation || "Non renseigné"}</td>
+                    <td>${data.animations || "Non renseigné"}</td>
+                    <td>${data.mainSections || "Non renseigné"}</td>
+                    <td>${data.features || "Non renseigné"}</td>
+                    <td>${data.eCommerce || "Non renseigné"}</td>
+                    <td>${data.timeline || "Non renseigné"}</td>
+                    <td>${data.budget || "Non renseigné"}</td>
+                    <td>${data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleString() : "Non renseigné"}</td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Charger les données au chargement de la page
+        document.addEventListener("DOMContentLoaded", afficherClients);
+    </script>
+
 </body>
 </html>

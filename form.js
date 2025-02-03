@@ -17,9 +17,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Gestion de l'envoi du formulaire
+// Gestionnaire du formulaire
 document.getElementById('designForm').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Empêche l'envoi classique
+    event.preventDefault();
 
     // Récupération des données du formulaire
     const formData = {
@@ -40,16 +40,17 @@ document.getElementById('designForm').addEventListener('submit', async function(
         eCommerce: document.getElementById("eCommerce").value,
         timeline: document.getElementById("timeline").value,
         budget: document.getElementById("budget").value,
-        timestamp: new Date() // Ajout d'un horodatage
+        timestamp: new Date()
     };
 
+    console.log("Données à envoyer :", formData); // ✅ Vérifie que les champs sont bien remplis
+
     try {
-        // Ajouter les données à Firestore
         await addDoc(collection(db, "clients"), formData);
-        alert("Formulaire enregistré avec succès sur Firebase !");
-        document.getElementById('designForm').reset(); // Réinitialise le formulaire après l'envoi
+        alert("Formulaire enregistré avec succès !");
+        document.getElementById('designForm').reset();
     } catch (error) {
-        console.error("Erreur lors de l'enregistrement :", error);
-        alert("Une erreur est survenue. Veuillez réessayer.");
+        console.error("Erreur Firebase :", error);
+        alert("Une erreur est survenue.");
     }
 });
