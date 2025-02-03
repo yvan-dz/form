@@ -9,33 +9,35 @@
 <body>
     <div class="container">
         <h1>Liste des soumissions des clients</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom de l'entreprise</th>
-                    <th>Contact</th>
-                    <th>Description du projet</th>
-                    <th>Objectif du site</th>
-                    <th>Logo</th>
-                    <th>Couleurs</th>
-                    <th>Style Visuel</th>
-                    <th>Ambiance</th>
-                    <th>Exemples</th>
-                    <th>Préférence Design</th>
-                    <th>Navigation</th>
-                    <th>Animations</th>
-                    <th>Pages Principales</th>
-                    <th>Fonctionnalités</th>
-                    <th>E-Commerce</th>
-                    <th>Délai</th>
-                    <th>Budget</th>
-                    <th>Date de soumission</th>
-                </tr>
-            </thead>
-            <tbody id="clientsTableBody">
-                <!-- Les données seront affichées ici -->
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom de l'entreprise</th>
+                        <th>Contact</th>
+                        <th>Description du projet</th>
+                        <th>Objectif du site</th>
+                        <th>Logo</th>
+                        <th>Couleurs</th>
+                        <th>Style Visuel</th>
+                        <th>Ambiance</th>
+                        <th>Exemples</th>
+                        <th>Préférence Design</th>
+                        <th>Navigation</th>
+                        <th>Animations</th>
+                        <th>Pages Principales</th>
+                        <th>Fonctionnalités</th>
+                        <th>E-Commerce</th>
+                        <th>Délai</th>
+                        <th>Budget</th>
+                        <th>Date de soumission</th>
+                    </tr>
+                </thead>
+                <tbody id="clientsTableBody">
+                    <!-- Les données seront affichées ici -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Import Firebase -->
@@ -69,24 +71,24 @@
                 const row = document.createElement("tr");
 
                 row.innerHTML = `
-                    <td>${data.companyName || "Non renseigné"}</td>
-                    <td>${data.contact || "Non renseigné"}</td>
-                    <td>${data.projectDescription || "Non renseigné"}</td>
-                    <td>${data.websiteGoal || "Non renseigné"}</td>
-                    <td><a href="${data.logoUrl || '#'}" target="_blank">Voir</a></td>
-                    <td>${data.colors || "Non renseigné"}</td>
-                    <td>${data.visualStyle || "Non renseigné"}</td>
-                    <td>${data.ambiance || "Non renseigné"}</td>
-                    <td>${data.examples || "Non renseigné"}</td>
-                    <td>${data.designPreference || "Non renseigné"}</td>
-                    <td>${data.navigation || "Non renseigné"}</td>
-                    <td>${data.animations || "Non renseigné"}</td>
-                    <td>${data.mainSections || "Non renseigné"}</td>
-                    <td>${data.features || "Non renseigné"}</td>
-                    <td>${data.eCommerce || "Non renseigné"}</td>
-                    <td>${data.timeline || "Non renseigné"}</td>
-                    <td>${data.budget || "Non renseigné"}</td>
-                    <td>${data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleString() : "Non renseigné"}</td>
+                    <td data-label="Nom de l'entreprise">${data.companyName || "Non renseigné"}</td>
+                    <td data-label="Contact">${data.contact || "Non renseigné"}</td>
+                    <td data-label="Description">${data.projectDescription || "Non renseigné"}</td>
+                    <td data-label="Objectif">${data.websiteGoal || "Non renseigné"}</td>
+                    <td data-label="Logo">${data.logoUrl ? `<a href="${data.logoUrl}" target="_blank">Voir</a>` : "Non renseigné"}</td>
+                    <td data-label="Couleurs">${data.colors || "Non renseigné"}</td>
+                    <td data-label="Style">${data.visualStyle || "Non renseigné"}</td>
+                    <td data-label="Ambiance">${data.ambiance || "Non renseigné"}</td>
+                    <td data-label="Exemples">${data.examples ? `<a href="${data.examples}" target="_blank">Lien</a>` : "Non renseigné"}</td>
+                    <td data-label="Design">${data.designPreference || "Non renseigné"}</td>
+                    <td data-label="Navigation">${data.navigation || "Non renseigné"}</td>
+                    <td data-label="Animations">${data.animations || "Non renseigné"}</td>
+                    <td data-label="Pages">${data.mainSections || "Non renseigné"}</td>
+                    <td data-label="Fonctionnalités">${data.features || "Non renseigné"}</td>
+                    <td data-label="E-Commerce">${data.eCommerce || "Non renseigné"}</td>
+                    <td data-label="Délai">${data.timeline || "Non renseigné"}</td>
+                    <td data-label="Budget">${data.budget || "Non renseigné"}</td>
+                    <td data-label="Date">${data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleString() : "Non renseigné"}</td>
                 `;
 
                 tableBody.appendChild(row);

@@ -1,32 +1,206 @@
+/* 🌍 Styles Généraux */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
 }
 
+/* Conteneur Principal */
 .container {
-    max-width: 900px;
-    margin: auto;
+    max-width: 1200px;
+    margin: 30px auto;
     background: white;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
+/* 🎯 Titre Principal */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* 🏗️ Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow-x: auto;
+    display: block;
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    padding: 14px;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
 th {
     background-color: #007BFF;
     color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+/* 🎨 Effet survol pour le tableau */
+tr:hover {
+    background-color: #f1f1f1;
+    transition: 0.3s;
+}
+
+/* 🔗 Liens Stylisés */
+a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 📱 RESPONSIVE DESIGN */
+
+/* 🌍 Grand écran (Desktop & Grand Laptop) */
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
+
+/* 📲 Tablette large (iPad, Surface, etc.) */
+@media screen and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+        padding: 18px;
+    }
+
+    table {
+        font-size: 15px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* 📱 Tablette standard (Galaxy Tab, iPad Mini) */
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        padding: 14px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    /* 📌 Convertir le tableau en cartes pour le mobile */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none; /* Cacher l'en-tête sur mobile */
+    }
+
+    tr {
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    td {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    td:before {
+        content: attr(data-label); /* Ajout des titres dynamiques */
+        font-weight: bold;
+        color: #007BFF;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        font-size: 12px;
+    }
+}
+
+/* 📳 Mobile standard (iPhone, Samsung Galaxy) */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    td {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    td:before {
+        font-size: 11px;
+    }
+}
+
+/* 📱 Très petits écrans (iPhone SE, petits Android) */
+@media screen and (max-width: 360px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+
+    td {
+        font-size: 12px;
+    }
+
+    td:before {
+        font-size: 10px;
+    }
 }
