@@ -11,7 +11,7 @@
         <h1>Formulaire de Conception de Site Web</h1>
         <p>Chez Websnape, nous sommes spécialisés dans la création de sites web sur mesure, alliant design moderne et fonctionnalité. Ce formulaire nous permet de mieux comprendre vos besoins et de vous offrir une expérience personnalisée qui correspond à vos attentes visuelles et techniques.</p>
         
-        <form id="designForm"  action="https://formspree.io/f/xvgoopbo" method="POST">
+        <form id="designForm">
             <!-- Informations Générales -->
             <fieldset>
                 <legend>Informations Générales</legend>
@@ -108,7 +108,9 @@
         </form>
     </div>
 
-    <script src="form.js"></script>
+    <!-- Importation des scripts Firebase -->
+    <script type="module" src="form.js"></script>
+
     <script>
         // Gestionnaire d'événement pour afficher le champ de lien du logo si "Oui" est sélectionné
         document.querySelectorAll('input[name="hasLogo"]').forEach((elem) => {

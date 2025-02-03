@@ -1,24 +1,55 @@
-document.getElementById('designForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    // Récupérer les données du formulaire
-    const formData = new FormData(this);
+// Importation des modules Firebase
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-    // Envoyer les données à Formspree
-    fetch('https://formspree.io/f/xvgoopbo', {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then(response => {
-        if (response.ok) {
-            alert('Formulaire envoyé avec succès !');
-            document.getElementById('designForm').reset();  // Réinitialiser le formulaire après envoi
-        } else {
-            alert('Une erreur est survenue. Veuillez réessayer.');
-        }
-    }).catch(error => {
-        alert('Une erreur s\'est produite lors de l\'envoi. Veuillez vérifier votre connexion.');
-    });
+// Configuration Firebase (déjà définie dans ton code)
+const firebaseConfig = {
+    apiKey: "AIzaSyB9nXTsER4ouKjNrlL5zbf3Tj8Yq2fs_gg",
+    authDomain: "websnape-form.firebaseapp.com",
+    projectId: "websnape-form",
+    storageBucket: "websnape-form.firebasestorage.app",
+    messagingSenderId: "250051491514",
+    appId: "1:250051491514:web:daa2f4c543c44ca4a6b483",
+    measurementId: "G-WZWEWV7HJ9"
+};
+
+// Initialisation de Firebase et Firestore
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Gestion de l'envoi du formulaire
+document.getElementById('designForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Empêche l'envoi classique
+
+    // Récupération des données du formulaire
+    const formData = {
+        companyName: document.getElementById("companyName").value,
+        contact: document.getElementById("contact").value,
+        projectDescription: document.getElementById("projectDescription").value,
+        websiteGoal: document.getElementById("websiteGoal").value,
+        logoUrl: document.getElementById("logoUrl").value,
+        colors: document.getElementById("colors").value,
+        visualStyle: document.getElementById("visualStyle").value,
+        ambiance: document.getElementById("ambiance").value,
+        examples: document.getElementById("examples").value,
+        designPreference: document.getElementById("designPreference").value,
+        navigation: document.getElementById("navigation").value,
+        animations: document.getElementById("animations").value,
+        mainSections: document.getElementById("mainSections").value,
+        features: document.getElementById("features").value,
+        eCommerce: document.getElementById("eCommerce").value,
+        timeline: document.getElementById("timeline").value,
+        budget: document.getElementById("budget").value,
+        timestamp: new Date() // Ajout d'un horodatage
+    };
+
+    try {
+        // Ajouter les données à Firestore
+        await addDoc(collection(db, "clients"), formData);
+        alert("Formulaire enregistré avec succès sur Firebase !");
+        document.getElementById('designForm').reset(); // Réinitialise le formulaire après l'envoi
+    } catch (error) {
+        console.error("Erreur lors de l'enregistrement :", error);
+        alert("Une erreur est survenue. Veuillez réessayer.");
+    }
 });
